@@ -16,7 +16,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String keyHandle; // Should be saved in shared pref
+  late String keyHandle; // Should be saved in shared pref
   static const String regChallenge =
       "randomchallenge1231321"; // Should come from server
   static const String signChallenge =
@@ -60,7 +60,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   Widget buildRegButton() {
-    return RaisedButton(
+    return ElevatedButton(
       child: Text('FIDO Register'),
       onPressed: () async {
         Map<String, dynamic> options = {
@@ -87,7 +87,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   Widget buildSignButton() {
-    return RaisedButton(
+    return ElevatedButton(
       child: Text('FIDO Sign'),
       onPressed: keyHandle == null
           ? null

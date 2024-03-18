@@ -146,9 +146,9 @@ class Fido2ClientWeb {
   /// user completes the authentication process.
   Future<PublicKeyCredential> initiateSigning(
       List<dynamic> keyHandle, String challenge,
-      [String rpDomain]) async {
+      [String? rpDomain]) async {
     var publicKeyCredentialJS = await promiseToFuture(
-        web_initiateSigning(keyHandle, challenge, rpDomain));
+        web_initiateSigning(keyHandle, challenge, rpDomain!));
 
     return PublicKeyCredential.fromJs(publicKeyCredentialJS);
   }
